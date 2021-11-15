@@ -1,7 +1,7 @@
-function ListItem({user, rname, address, favDish, Price, image, comment}){
+function ListItem({user, Rname, address, FavDish, Price, image, comment}){
     return(
         <div>
-            <h1>{rname}</h1>
+            <h1>{Rname}</h1>
             <h4>{address}</h4>
             <p>Submitted by: {user}</p>
             <h2>What you must try when you make it there: {favDish}</h2>
