@@ -7,10 +7,9 @@ function App() {
   return (
     <>
     <MasterList />
-    <AddNewForm />
-    <Links />
+    <Links/>
     </>
-    );
+  )
 }
 
 export default App;
