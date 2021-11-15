@@ -17,7 +17,7 @@ ReactDOM.render(
     <App />
     </Route>
 
-{/*Same question as line8 applies to lines 21-29*/}
+{/*Same question as line8 applies to lines 21-29
     <Route exact path="/Max">
       < Max />
     </Route>
@@ -26,7 +26,7 @@ ReactDOM.render(
     </Route>
     <Route exact path="/Pema">
       < Pema />
-    </Route>    
+    </Route>    */}
     
     </BrowserRouter>
   </React.StrictMode>,
