@@ -1,25 +1,23 @@
 import SearchBar from "./SearchBar"
-// import {useEffect} from "react"
+import {useEffect,useState} from "react"
 import ListItem from "./ListItem"
+import AddNewForm from "./AddNewForm";
 
 function MasterList(){
+    const [lists,setList] = useState([]);
     
-    const newArr = [1,2,3,4,5,6]
+    useEffect(() => {
+        fetch("http://localhost:3000/users")
+        .then(res => res.json())
+        .then(data => setList(data))
+    },[])
+
 
     return(
         <div>
         <SearchBar />
-        <h1>This is where the Master List of Foods Will Go</h1>
-        {newArr.map(arrItem=><ListItem key={arrItem} id={arrItem} />)}
-        
-        
-        {/* useEffect(()=>{
-            fetch("https://localhost:3000")
-            .then(resp=>resp.json())
-            .then(data=>{
-                data.map(dataObb=><ListItem name={item.name}/>)
-            })
-            }) */}
+        {lists.map(list => <ListItem key={list.id} id={list.id} user={list.user} rname={list.Rname} address={list.address} favDish={list.favDish} price={list.price} image={list.image}/>)}
+        <AddNewForm />
         </div>
     )
 }

@@ -1,7 +1,12 @@
 function SearchBar(){
-    return(
-        <h2>This is where the Search Bar Will Go</h2>
-    )
-}
+    
+    return (
+        <div className="searchbar">
+          <label htmlFor="search">Search Restuarants</label>
+          <input type="text" id="search" placeholder= "What are you searching for?"
+          />
+        </div>
+      );
+    }
 
 export default SearchBar;
