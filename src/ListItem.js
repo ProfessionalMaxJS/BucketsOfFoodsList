@@ -10,7 +10,6 @@ function ListItem({user, rname, address, favDish, price, image, comment}){
             <img src={image} alt="featured restaurant or dish" />
             <h3>{price}</h3>
             <p>Why {`${user}`} thinks you must try this food before you die: <br/>{comment}</p>
-
         </div>
     )
 }
