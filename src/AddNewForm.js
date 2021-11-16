@@ -19,9 +19,11 @@ function AddNewForm(){
       price: '',
   })
   }
-  
-// just a comment
+  // helloooo
 
+// new return
+return(
+<>
   <form onSubmit={handleSubmit} >
   <label>Name</label>
   <input 
@@ -65,6 +67,7 @@ function AddNewForm(){
   ></input>
   <input type="submit" />
 </form>
-}
+</>
+)}
 
 export default AddNewForm;
