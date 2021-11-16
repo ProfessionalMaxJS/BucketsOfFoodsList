@@ -21,7 +21,7 @@ function AddNewForm(){
   }
   
 // just a comment
-
+return(
   <form onSubmit={handleSubmit} >
   <label>Name</label>
   <input 
@@ -65,6 +65,6 @@ function AddNewForm(){
   ></input>
   <input type="submit" />
 </form>
-}
+)}
 
 export default AddNewForm;
