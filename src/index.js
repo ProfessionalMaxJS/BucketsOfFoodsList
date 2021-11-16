@@ -12,33 +12,9 @@ ReactDOM.render(
     <Route exact path="/">
     <App />
     </Route>
-
-<<<<<<< HEAD
-    {/* <Route exact path="/Max">
-=======
-{/*Same question as line8 applies to lines 21-29
-    <Route exact path="/Max">
->>>>>>> e333567bff331c13123cb1bce02a874feb0eab7b
-      < Max />
-    </Route>
-    <Route exact path="/Okera">
-      < Okera />
-    </Route>
-    <Route exact path="/Pema">
-      < Pema />
-<<<<<<< HEAD
-    </Route>    
-     */}
-=======
-    </Route>    */}
-    
->>>>>>> e333567bff331c13123cb1bce02a874feb0eab7b
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
