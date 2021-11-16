@@ -21,7 +21,9 @@ function AddNewForm(){
   }
   // helloooo
 
+// new return
 return(
+<>
   <form onSubmit={handleSubmit} >
   <label>Name</label>
   <input 
@@ -65,6 +67,7 @@ return(
   ></input>
   <input type="submit" />
 </form>
+</>
 )}
 
 export default AddNewForm;
