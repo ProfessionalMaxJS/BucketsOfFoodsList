@@ -11,35 +11,27 @@ function AddNewForm({list, setList}){
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setList([formData,...lists])
-    setFormData({
-      name:'',
-      address:'',
-      FavDish: '',
-      image: '',
-      price: '',
-  })
-  }
-  
-  useEffect(()=> {
-  fetch("http://localhost:3000/users", {         //add url  for the masterlist
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(formData)
-     
-    }
-    .then(response => response.json())
-    .then(data => setList([...list, data]))
-  )
+    
+    fetch("http://localhost:3000/users", {         //add url  for the masterlist
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+      })
+      .then(response => response.json())
+      .then(data => { 
+      setList([...list, data])
+      setFormData({
+        name:'',
+        address:'',
+        FavDish: '',
+        image: '',
+        price: '',     
+      })
+    })}
 
-    
-    
-    
-  
- 
 return(
 <>
   <form onSubmit={handleSubmit} >
@@ -86,7 +78,8 @@ return(
   <input type="submit" />
 </form>
 </>
-)}
-  )}
+)
+}
+
 
 export default AddNewForm;

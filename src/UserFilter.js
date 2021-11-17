@@ -8,13 +8,13 @@ function UserFilter({list,setSelectedUser}){
        setSelectedUser(e.target.name)
     }
     let userNames = [];
-   //  userNames = lists.map((list) => {if (!(userNames.includes(list.user))) {return list.user}})
+   //  userNames = list.map((list) => {if (!(userNames.includes(list.user))) {return list.user}})
     
-   for(let i=0; i<lists.length; i++)
-   {if (userNames.includes(lists[i].user))
+   for(let i=0; i<list.length; i++)
+   {if (userNames.includes(list[i].user))
       {console.log(userNames)}
    else
-   {  userNames.push(lists[i].user)
+   {  userNames.push(list[i].user)
       console.log(userNames)}  
    }   
     
