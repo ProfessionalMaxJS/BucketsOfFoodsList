@@ -5,7 +5,7 @@ import AddNewForm from "./AddNewForm";
 import UserFilter from "./UserFilter";
 
 function MasterList(){
-    const [lists,setList] = useState([]);
+    const [list,setList] = useState([]);
     const [searchedFood, setSearchedFood] = useState("")
     const [selectedUser,setSelectedUser] = useState("")
     
@@ -16,8 +16,8 @@ function MasterList(){
         .then(data => setList(data))
     },[])
 
-    const visibleList = lists.filter((list) => (list.rname.toLowerCase().includes(searchedFood.toLowerCase())) || (list.favdish.toLowerCase().includes(searchedFood.toLowerCase())))
-    const userList = lists.filter((list) => (list.user === selectedUser))
+    const visibleList = list.filter((list) => (list.rname.toLowerCase().includes(searchedFood.toLowerCase())) || (list.favdish.toLowerCase().includes(searchedFood.toLowerCase())))
+    const userList = list.filter((list) => (list.user === selectedUser))
     const newFilter = selectedUser ? userList : visibleList
 
 
@@ -25,9 +25,9 @@ function MasterList(){
         <div>
         <h1> Buckets Of Foods List </h1>
         <SearchBar setSearchedFood={setSearchedFood} search={searchedFood}/>
-        <UserFilter lists={lists} setSelectedUser={setSelectedUser}/>
+        <UserFilter list={list} setSelectedUser={setSelectedUser}/>
         {newFilter.map(list => <ListItem key={list.id} id={list.id} user={list.user} rname={list.rname} address={list.address} favDish={list.favdish} price={list.price} image={list.image}/>)}
-        <AddNewForm lists={lists} setList={setList} />
+        <AddNewForm list={list} setList={setList}/>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
+import ListItem from "./ListItem";
 
-function AddNewForm({setList, lists}){
+function AddNewForm({list, setList}){
 
   const [formData,setFormData] = useState([]);
 
@@ -19,9 +20,26 @@ function AddNewForm({setList, lists}){
       price: '',
   })
   }
-  // helloooo
+  
+  useEffect(()=> {
+  fetch("http://localhost:3000/users", {         //add url  for the masterlist
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+     
+    }
+    .then(response => response.json())
+    .then(data => setList([...list, data]))
+  )
 
-// new return
+    
+    
+    
+  
+ 
 return(
 <>
   <form onSubmit={handleSubmit} >
@@ -69,5 +87,6 @@ return(
 </form>
 </>
 )}
+  )}
 
 export default AddNewForm;

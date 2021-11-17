@@ -1,6 +1,6 @@
 // import {useState} from "react";
 
-function UserFilter({lists,setSelectedUser}){
+function UserFilter({list,setSelectedUser}){
 
    // const [buttonsList, setButtonsList] = useState([])
 
