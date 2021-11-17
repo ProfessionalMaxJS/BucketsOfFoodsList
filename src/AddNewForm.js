@@ -28,7 +28,8 @@ function AddNewForm({list, setList}){
         address:'',
         favDish: '',
         image: '',
-        price: '',     
+        price: '', 
+        comment: '',    
       })
     })}
 
@@ -73,6 +74,14 @@ return(
   name="image"
   aria-label="image"
   value={formData.image}
+  onChange={handleChange}
+  ></input>
+  <label>Comments</label>
+  <input 
+  type="text"
+  name="comment"
+  aria-label="comment"
+  value={formData.comment}
   onChange={handleChange}
   ></input>
   <input type="submit" />
