@@ -3,7 +3,15 @@ import ListItem from "./ListItem";
 
 function AddNewForm({list, setList}){
 
-  const [formData,setFormData] = useState([]);
+  const [formData,setFormData] = useState({        
+  user:'',
+  rName:'',
+  address:'',
+  favDish: '',
+  image: '',
+  price: '', 
+  comment: '',
+});
 
   const handleChange = (e) => {
     setFormData({...formData, [e.target.name]:e.target.value})
@@ -24,6 +32,7 @@ function AddNewForm({list, setList}){
       .then(data => { 
       setList([...list, data])
       setFormData({
+        user:'',
         rName:'',
         address:'',
         favDish: '',
@@ -36,10 +45,18 @@ function AddNewForm({list, setList}){
 return(
 <>
   <form onSubmit={handleSubmit} >
-  <label>Name</label>
+  <label>Submitted By:</label>
   <input 
   type="text"
-  rName="name"
+  name="user"
+  aria-label="user"
+  value={formData.user}
+  onChange={handleChange}
+  ></input>
+  <label>Restaurant Name</label>
+  <input 
+  type="text"
+  name="rName"
   aria-label="name"
   value={formData.rName}
   onChange={handleChange}
@@ -64,6 +81,7 @@ return(
   <input 
   type="number"
   name="price"
+  step="0.01"
   aria-label="price"
   value={formData.price}
   onChange={handleChange}
