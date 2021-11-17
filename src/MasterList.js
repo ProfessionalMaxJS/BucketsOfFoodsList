@@ -26,7 +26,7 @@ function MasterList(){
         <h1> Buckets Of Foods List </h1>
         <SearchBar setSearchedFood={setSearchedFood} search={searchedFood}/>
         <UserFilter list={list} setSelectedUser={setSelectedUser}/>
-        {newFilter.map(list => <ListItem key={list.id} id={list.id} user={list.user} rname={list.rname} address={list.address} favDish={list.favdish} price={list.price} image={list.image}/>)}
+        {newFilter.map(list => <ListItem key={list.id} id={list.id} user={list.user} rname={list.rname} address={list.address} favDish={list.favdish} price={list.price} image={list.image} comment={list.comment}/>)}
         <AddNewForm list={list} setList={setList}/>
         </div>
     )
