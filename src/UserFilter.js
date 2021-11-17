@@ -1,13 +1,13 @@
 import {useState} from "react";
 
-function UserFilter({lists,setSelectedUser}){
+function UserFilter({list,setSelectedUser}){
 
    const [buttonsList, setButtonsList] = useState([])
 
    function handleClick(e){
        setSelectedUser(e.target.innerText)
     }
-    const userList = lists.map((list) => <button onClick={handleClick}>{list.user}</button>)
+    const userList = list.map((listItem) => <button onClick={handleClick}>{listItem.user}</button>)
 
     return( 
 
