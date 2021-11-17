@@ -1,17 +1,29 @@
-import {useState} from "react";
+// import {useState} from "react";
 
 function UserFilter({lists,setSelectedUser}){
 
-   const [buttonsList, setButtonsList] = useState([])
+   // const [buttonsList, setButtonsList] = useState([])
 
    function handleClick(e){
-       setSelectedUser(e.target.innerText)
+       setSelectedUser(e.target.name)
     }
-    const userList = lists.map((list) => <button onClick={handleClick}>{list.user}</button>)
+    let userNames = [];
+   //  userNames = lists.map((list) => {if (!(userNames.includes(list.user))) {return list.user}})
+    
+   for(let i=0; i<lists.length; i++)
+   {if (userNames.includes(lists[i].user))
+      {console.log(userNames)}
+   else
+   {  userNames.push(lists[i].user)
+      console.log(userNames)}  
+   }   
+    
+   const userButtons = userNames.map(userName=> 
+      {console.log(userName);
+      return <button key={userName} name={userName} onClick={handleClick}>{userName}</button>})
 
     return( 
-
-    userList
+userButtons
  )
 }
 export default UserFilter;
