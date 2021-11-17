@@ -24,9 +24,9 @@ function AddNewForm({list, setList}){
       .then(data => { 
       setList([...list, data])
       setFormData({
-        name:'',
+        rName:'',
         address:'',
-        FavDish: '',
+        favDish: '',
         image: '',
         price: '',     
       })
@@ -38,9 +38,9 @@ return(
   <label>Name</label>
   <input 
   type="text"
-  name="name"
+  rName="name"
   aria-label="name"
-  value={formData.name}
+  value={formData.rName}
   onChange={handleChange}
   ></input>
   <label>Address</label>
@@ -51,12 +51,12 @@ return(
   value={formData.address}
   onChange={handleChange}
   ></input>
-  <label>FavDish</label>
+  <label>favDish</label>
   <input 
   type="text"
-  name="FavDish"
+  name="favDish"
   aria-label="genre"
-  value={formData.FavDish}
+  value={formData.favDish}
   onChange={handleChange}
   ></input>
   <label>Price</label>
