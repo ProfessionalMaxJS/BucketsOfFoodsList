@@ -27,7 +27,7 @@ function MasterList(){
         <SearchBar setSearchedFood={setSearchedFood} search={searchedFood}/>
         <UserFilter lists={lists} setSelectedUser={setSelectedUser}/>
         {newFilter.map(list => <ListItem key={list.id} id={list.id} user={list.user} rname={list.rname} address={list.address} favDish={list.favdish} price={list.price} image={list.image}/>)}
-        <AddNewForm />
+        <AddNewForm lists={lists} setList={setList} />
         </div>
     )
 }

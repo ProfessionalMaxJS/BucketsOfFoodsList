@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-function AddNewForm(){
+function AddNewForm({setList, lists}){
 
   const [formData,setFormData] = useState([]);
 
@@ -10,7 +10,7 @@ function AddNewForm(){
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setMasterList([formData,...MasterList])
+    setList([formData,...lists])
     setFormData({
       name:'',
       address:'',
