@@ -16,7 +16,7 @@ function MasterList(){
         .then(data => setList(data))
     },[])
 
-    const visibleList = list.filter((list) => (list.rName.toLowerCase().includes(searchedFood.toLowerCase())) || (list.favdish.toLowerCase().includes(searchedFood.toLowerCase())))
+    const visibleList = list.filter((list) => (list.rName.toLowerCase().includes(searchedFood.toLowerCase())) || (list.favDish.toLowerCase().includes(searchedFood.toLowerCase())))
     const userList = list.filter((list) => (list.user === selectedUser))
     const newFilter = selectedUser ? userList : visibleList
 
