@@ -11,7 +11,7 @@ function AddNewForm({list, setList}){
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setMasterList([formData,...MasterList])
+    setList([formData,...lists])
     setFormData({
       name:'',
       address:'',
