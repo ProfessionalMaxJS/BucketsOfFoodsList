@@ -1,5 +1,7 @@
+
 import {useState} from "react";
 // import ListItem from "./ListItem";
+
 
 function AddNewForm({list, setList}){
 
@@ -17,7 +19,7 @@ function AddNewForm({list, setList}){
     setFormData({...formData, [e.target.name]:e.target.value})
   }
 
-  const handleSubmit = (e) => {
+ function handleSubmit(e){
     e.preventDefault()
     
     fetch("http://localhost:3000/users", {         //add url  for the masterlist
@@ -42,9 +44,10 @@ function AddNewForm({list, setList}){
       })
     })}
 
+
 return(
-<>
-  <form onSubmit={handleSubmit} >
+  <>
+  <form onSubmit={handleSubmit} style={{marginLeft:"10%", marginRight:"10%", marginTop:"5%"}}>
   <label>Submitted By:</label>
   <input 
   type="text"
@@ -59,6 +62,7 @@ return(
   name="rName"
   aria-label="name"
   value={formData.rName}
+
   onChange={handleChange}
   ></input>
   <label>Address</label>
@@ -69,6 +73,7 @@ return(
   value={formData.address}
   onChange={handleChange}
   ></input>
+
   <label>favDish</label>
   <input 
   type="text"

@@ -6,6 +6,8 @@ import AddNewForm from "./AddNewForm";
 import UserFilter from "./UserFilter";
 import {Route, Switch} from "react-router-dom";
 
+import { Scrollbars } from 'rc-scrollbars';
+
 function MasterList(){
     const [list,setList] = useState([]);
     const [searchedFood, setSearchedFood] = useState("")
@@ -30,9 +32,11 @@ return(
 <Switch>
     <Route path="/search">
         <SearchBar setSearchedFood={setSearchedFood} search={searchedFood}/>
+
     </Route>
 
     <Route path="/contribute">
+        <UserFilter list={list} setSelectedUser={setSelectedUser}/>
         <AddNewForm list={list} setList={setList}/>
     </Route>
     
@@ -40,8 +44,9 @@ return(
     <UserFilter list={list} setSelectedUser={setSelectedUser}/>
     </Route>
 </Switch>
-
-{newFilter.map(list => <ListItem key={list.id} id={list.id} user={list.user} rName={list.rName} address={list.address} favDish={list.favDish} price={list.price} image={list.image} comment={list.comment}/>)}
+<Scrollbars style={{ width: 500, height: 400,marginLeft:"30%", marginTop:"10%"}}>
+        {newFilter.map(list => <ListItem key={list.id} id={list.id} user={list.user} rName={list.rName} address={list.address} favDish={list.favDish} price={list.price} image={list.image} comment={list.comment}/>)}
+        </Scrollbars>
     </>
     )
 }
