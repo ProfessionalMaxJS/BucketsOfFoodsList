@@ -1,28 +1,29 @@
-// import {useState} from "react";
+import {useState} from "react";
 
-function UserFilter({list,setSelectedUser}){
+function UserFilter({masterList, setList}){
+   
+   let userNames = ["Everyone"];
+   
+   for(let i=0; i<masterList.length; i++)
+   {if (userNames.includes(masterList[i].user))
+      {console.log(`rejected repeat creation of ${masterList[i]} button`)}
+      else
+      {  userNames.push(masterList[i].user)
+         console.log(userNames)}  
+      }   
 
+const [selectedUser,setSelectedUser] = useState("")
 
-   function handleClick(e){
-       setSelectedUser(e.target.name)
-    }
-    let userNames = [""];
+function handleClick(e){
+   setSelectedUser(e.target.name)
+   
+   setList(masterList.filter((list) => {return e.target.name==="Everyone" || list.user===e.target.name}))
+}
 
-   for(let i=0; i<list.length; i++)
-   {if (userNames.includes(list[i].user))
-      {console.log(userNames)}
-   else
-   {  userNames.push(list[i].user)
-      console.log(userNames)}  
-   }   
-    
-   const userButtons = userNames.map(userName=> 
-      {console.log(userName);
-      return <button key={userName} name={userName} onClick={handleClick}>{userName}</button>})
-
-    return( 
-userButtons
- )
+return( 
+userNames.map(userName=> 
+      <button key={userName} name={userName} onClick={handleClick}>{userName}</button>
+ ))
 }
 export default UserFilter;
 

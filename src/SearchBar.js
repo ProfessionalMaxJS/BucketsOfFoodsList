@@ -1,9 +1,15 @@
+
 import styled from "styled-components"
+import {useState} from "react";
 
-function SearchBar({search,setSearchedFood}){
+function SearchBar({masterList, setList}){
 
+  const [search, setSearch] = useState("")
+  
   function handleChange(e){
-    setSearchedFood(e.target.value)
+    setSearch(e.target.value)
+  
+    setList(masterList.filter((listObj) => (listObj.rName.toLowerCase().includes(e.target.value.toLowerCase())) || (listObj.favDish.toLowerCase().includes(e.target.value.toLowerCase()))))
   }
 
     return (
