@@ -2,14 +2,12 @@
 
 function UserFilter({list,setSelectedUser}){
 
-   // const [buttonsList, setButtonsList] = useState([])
 
    function handleClick(e){
        setSelectedUser(e.target.name)
     }
-    let userNames = [];
-   //  userNames = list.map((list) => {if (!(userNames.includes(list.user))) {return list.user}})
-    
+    let userNames = [""];
+
    for(let i=0; i<list.length; i++)
    {if (userNames.includes(list[i].user))
       {console.log(userNames)}

@@ -1,5 +1,5 @@
-import {useEffect, useState} from "react";
-import ListItem from "./ListItem";
+import {useState} from "react";
+// import ListItem from "./ListItem";
 
 function AddNewForm({list, setList}){
 

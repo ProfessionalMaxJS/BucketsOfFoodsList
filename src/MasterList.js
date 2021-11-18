@@ -1,8 +1,10 @@
 import SearchBar from "./SearchBar"
 import {useEffect,useState} from "react"
 import ListItem from "./ListItem"
+import NavBar from "./NavBar"
 import AddNewForm from "./AddNewForm";
 import UserFilter from "./UserFilter";
+import {Route, Switch} from "react-router-dom";
 
 function MasterList(){
     const [list,setList] = useState([]);
@@ -10,25 +12,37 @@ function MasterList(){
     const [selectedUser,setSelectedUser] = useState("")
     
 
-    useEffect(() => {
-        fetch("http://localhost:3000/users")
-        .then(res => res.json())
-        .then(data => setList(data))
+useEffect(() => {
+    fetch("http://localhost:3000/users")
+    .then(res => res.json())
+    .then(data => setList(data))
     },[])
 
-    const visibleList = list.filter((list) => (list.rName.toLowerCase().includes(searchedFood.toLowerCase())) || (list.favDish.toLowerCase().includes(searchedFood.toLowerCase())))
-    const userList = list.filter((list) => (list.user === selectedUser))
-    const newFilter = selectedUser ? userList : visibleList
+const visibleList = list.filter((list) => (list.rName.toLowerCase().includes(searchedFood.toLowerCase())) || (list.favDish.toLowerCase().includes(searchedFood.toLowerCase())))
+const userList = list.filter((list) => (list.user === selectedUser))
+const newFilter = selectedUser ? userList : visibleList
 
 
-    return(
-        <div>
-        <h1> Buckets Of Foods List </h1>
+return(
+    <>
+    <h1> Buckets Of Food List </h1>
+    <NavBar />
+<Switch>
+    <Route path="/search">
         <SearchBar setSearchedFood={setSearchedFood} search={searchedFood}/>
-        <UserFilter list={list} setSelectedUser={setSelectedUser}/>
-        {newFilter.map(list => <ListItem key={list.id} id={list.id} user={list.user} rName={list.rName} address={list.address} favDish={list.favdish} price={list.price} image={list.image} comment={list.comment}/>)}
+    </Route>
+
+    <Route path="/contribute">
         <AddNewForm list={list} setList={setList}/>
-        </div>
+    </Route>
+    
+    <Route path="/recommendations">
+    <UserFilter list={list} setSelectedUser={setSelectedUser}/>
+    </Route>
+</Switch>
+
+{newFilter.map(list => <ListItem key={list.id} id={list.id} user={list.user} rName={list.rName} address={list.address} favDish={list.favDish} price={list.price} image={list.image} comment={list.comment}/>)}
+    </>
     )
 }
 
