@@ -1,7 +1,9 @@
 
+
 function ListItem({user, rName, address, favDish, price, image, comment}){
 
     return(
+        
         <div>
             <h1>{rName}</h1>
             <h4>{address}</h4>
