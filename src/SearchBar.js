@@ -7,8 +7,7 @@ function SearchBar({search,setSearchedFood}){
     return (
         <div className="searchbar">
           <label htmlFor="search">Search Restuarants</label>
-          <input type="text" id="search" placeholder= "What are you searching for?" value={search} onChange={handleChange}
-          />
+          <input type="text" id="search" placeholder= "What are you searching for?" value={search} onChange={handleChange}/>
         </div>
       );
     }
