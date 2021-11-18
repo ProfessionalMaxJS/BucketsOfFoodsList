@@ -1,9 +1,10 @@
 
 import {useState} from "react";
+import MasterList from "./MasterList";
 // import ListItem from "./ListItem";
 
 
-function AddNewForm({list, setList}){
+function AddNewForm({list, setList, masterList, setMasterList}){
 
   const [formData,setFormData] = useState({        
   user:'',
@@ -33,6 +34,7 @@ function AddNewForm({list, setList}){
       .then(response => response.json())
       .then(data => { 
       setList([...list, data])
+      setMasterList([...masterList, data])
       setFormData({
         user:'',
         rName:'',
