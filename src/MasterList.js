@@ -22,8 +22,7 @@ function MasterList(){
     
 return(
     <>
-
-    <h1 style={{backgroundColor: "rgba(227, 170, 28, 0.4)", margin:"0%"}}> Buckets Of Food List </h1>
+   <h1 id="heading" style={{ margin:"0%", padding: "10px", font:"Monaco"}}> Buckets Of Food List </h1>
     <NavBar setList={setList} masterList={masterList} />
 <Switch>
     <Route path="/search">
@@ -39,7 +38,7 @@ return(
     </Route>
 </Switch>
 
-<Scrollbars style={{ width: 900, height: 400,marginLeft:"15%", marginTop:"10%"}}>
+<Scrollbars style={{ width: 800, height: 500,marginLeft:"20%", marginTop:"30px" }}>
     {list.map(listObj => <ListItem key={listObj.id} user={listObj.user} rName={listObj.rName} address={listObj.address} favDish={listObj.favDish} price={listObj.price} image={listObj.image} comment={listObj.comment}/>)}
 </Scrollbars>    
         </>
@@ -54,8 +53,9 @@ text-align: center;
 display: grid;
 grid-template-columns: 1fr;
 
+
 img{
-    width: 200px;
+    width: 250%;
 }
 }`
 

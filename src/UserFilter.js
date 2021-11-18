@@ -1,3 +1,5 @@
+import styled from "styled-components"
+
 import {useState} from "react";
 
 function UserFilter({masterList, setList}){
@@ -22,10 +24,27 @@ function handleClick(e){
 
 return( 
 userNames.map(userName=> 
-      <button key={userName} name={userName} onClick={handleClick}>{userName}</button>
+   <StyledUserItem>
+      <button className="bttn" key={userName} name={userName} onClick={handleClick}>{userName}</button>
+   </StyledUserItem>
  ))
 }
 export default UserFilter;
+
+const StyledUserItem = styled.div`
+.bttn{
+   padding-top:10px;
+   border:black;
+   width: 10%;
+   border-radius: 10px;
+   margin: 10px;
+   font-family: monaco;
+   display: inline;
+   background-color:#326B9D;
+   color:#E3BB1C;
+   float:right;
+}`
+
 
 
 

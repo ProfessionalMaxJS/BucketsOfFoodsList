@@ -28,6 +28,7 @@ const StyledSearchBar = styled.div`
   width: 100%;
   position: relative;
   display: flex;
+
   
 
 }
@@ -39,7 +40,9 @@ const StyledSearchBar = styled.div`
   margin-top: 20px;
   height: 20px;
   border-radius: 10px;
-  background: rgba(227, 187, 28, 0.1)
+  font-family: monaco;
+  
+  
 
 }
 

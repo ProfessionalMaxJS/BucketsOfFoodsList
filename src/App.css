@@ -1,6 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Road+Rage&display=swap');
 
 *{
   justify-content:center;
   text-align: center;
   
+}
+body {
+  font-family: 'Fjalla One', sans-serif;
+}
+#heading{
+  font-family: 'Road Rage', cursive;
+  font-size: 450%;
+  color: #326B9D;
+  text-shadow: 3px 3px #E3BB1C;
 }

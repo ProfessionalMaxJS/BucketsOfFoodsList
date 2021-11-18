@@ -1,7 +1,8 @@
 
 import {useState} from "react";
 import MasterList from "./MasterList";
-// import ListItem from "./ListItem";
+import styled from "styled-components"
+
 
 
 function AddNewForm({list, setList, masterList, setMasterList}){
@@ -49,15 +50,10 @@ function AddNewForm({list, setList, masterList, setMasterList}){
 
 return(
   <>
-  <form onSubmit={handleSubmit} style={{marginLeft:"10%", marginRight:"10%", marginTop:"5%"}}>
-  <label>Submitted By:</label>
-  <input 
-  type="text"
-  name="user"
-  aria-label="user"
-  value={formData.user}
-  onChange={handleChange}
-  ></input>
+  <StyledFormList>
+  <h1> Add Your Favorite To The List</h1>
+  <form onSubmit={handleSubmit} style={{marginLeft:"10%", marginRight:"10%", marginTop:"5%", fontFamily: "monaco", fontWeight: "bold"}}>
+ 
   <label>Restaurant Name</label>
   <input 
   type="text"
@@ -101,6 +97,14 @@ return(
   value={formData.image}
   onChange={handleChange}
   ></input>
+   <label>Submitted By:</label>
+  <input 
+  type="text"
+  name="user"
+  aria-label="user"
+  value={formData.user}
+  onChange={handleChange}
+  ></input>
   <label>Comments</label>
   <input 
   type="text"
@@ -111,9 +115,28 @@ return(
   ></input>
   <input type="submit" />
 </form>
+</StyledFormList>
 </>
 )
 }
 
 
 export default AddNewForm;
+
+const StyledFormList = styled.div`
+color: #326B9D;
+input{
+  border-radius: 10px;
+  margin:10px;
+  color: #326B9D;
+  font-family: Copperplate;
+  border: 2px solid #326B9D;
+}
+margin-top: 10px;
+
+h1{
+  margin-top:50px;
+}
+
+}
+}`
