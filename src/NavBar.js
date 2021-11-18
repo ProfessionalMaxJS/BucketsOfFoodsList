@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom"
 import styled from "styled-components"
 
+
 function NavBar({setList, masterList}){
 
     function replenish(){
@@ -20,11 +21,13 @@ function NavBar({setList, masterList}){
 export default NavBar
 
 const StyledNavBar = styled.div`
-background-color: red;
+background-color: rgba(227, 170, 28, 0.4);
 
 button{
-    background-color: green;
+    background-color: #326B9D;
     width: 12%;
     font-weight: bold;
+    border-radius: 10px;
+    margin: 20px;
 }`
 

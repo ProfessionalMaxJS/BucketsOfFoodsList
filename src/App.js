@@ -1,5 +1,6 @@
 import MasterList from './MasterList';
-import'./App.css';
+import './App.css';
+
 
 
 function App() {
