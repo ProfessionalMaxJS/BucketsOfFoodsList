@@ -6,7 +6,7 @@ import AddNewForm from "./AddNewForm";
 import Recommendations from "./Recommendations";
 import UserFilter from "./UserFilter";
 import {Route, Switch} from "react-router-dom";
-// import styled from "styled-components"
+
 import { Scrollbars } from 'rc-scrollbars';
 
 function MasterList(){
@@ -14,7 +14,7 @@ function MasterList(){
     const [masterList, setMasterList] = useState([]);
      
     useEffect(() => {
-        fetch("http://localhost:3000/users")
+        fetch("https://foodbuckets.herokuapp.com/users")
         .then(res => res.json())
         .then(data => {
             setList(data)
@@ -44,9 +44,12 @@ return(
 
 </Switch>
 
+
 <Scrollbars style={{ width: 800, height: 500,marginLeft:"20%", marginTop:"30px" }}>
     {list.map(listObj => <ListItem key={listObj.id} user={listObj.user} rName={listObj.rName} address={listObj.address} favDish={listObj.favDish} price={listObj.price} image={listObj.image} comment={listObj.comment}/>)}
-</Scrollbars>    
+</Scrollbars>   
+
+
         </>
     )
 }

@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom"
+import styled from "styled-components"
 
 function UserNavBar({masterList}){
 
@@ -12,8 +13,27 @@ for(let i=0; i<masterList.length; i++)
         console.log(userNames)}}  
            
         return(
-    userNames.map(userName=><button key={userName}> <Link to={`/recommendations/${userName}`}>{`${userName}'s Faves`}</Link></button>)
+    userNames.map(userName=><StyledUserNav><button className="bttn"key={userName}> <Link to={`/recommendations/${userName}`}>{`${userName}'s Faves`}</Link></button></StyledUserNav>)
     )
 }
 
 export default UserNavBar;
+
+const StyledUserNav = styled.div`
+
+.bttn{
+    padding-top:10px;
+    border:black;
+    width: 10%;
+    border-radius: 10px;
+    margin: 10px;
+    font-family: monaco;
+    display: inline-block;
+    background-color:#326B9D;
+    color:#E3BB1C;
+    float: right;
+    margin-right: 2%;
+    text-color: #E3AA1C;
+    margin-bottom: 30px;
+  
+ }`

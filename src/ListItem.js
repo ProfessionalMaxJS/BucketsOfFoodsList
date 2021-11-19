@@ -20,7 +20,7 @@ function ListItem({id, user, rName, address, favDish, price, image, comment}){
 export default ListItem;
 
 const StyledListItem = styled.div`
-background-color: rgba(50, 107, 157, 0.9);
+background-color: rgba(50, 107, 157, 1);
 margin: 10px;
 border-radius: 20px;
 font-family: monaco;

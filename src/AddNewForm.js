@@ -21,7 +21,7 @@ function AddNewForm({list, setList, masterList, setMasterList}){
  function handleSubmit(e){
     e.preventDefault()
     
-    fetch("http://localhost:3000/users", {         //add url  for the masterlist
+    fetch("https://foodbuckets.herokuapp.com/users", {         //add url  for the masterlist
       method: 'POST',
       headers: {
         'Accept': 'application/json',
