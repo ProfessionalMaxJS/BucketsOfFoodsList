@@ -1,6 +1,7 @@
 import {useState} from "react";
 import styled from "styled-components"
 
+
 function AddNewForm({list, setList, masterList, setMasterList}){
 
   const [formData,setFormData] = useState({        
@@ -49,7 +50,7 @@ return(
   <StyledFormList>
   <h1> Add Your Favorite To The List</h1>
   <form onSubmit={handleSubmit} style={{marginLeft:"10%", marginRight:"10%", marginTop:"5%", fontFamily: "monaco", fontWeight: "bold"}}>
- 
+  <div>
   <label>Restaurant Name</label>
   <input 
   type="text"
@@ -59,6 +60,8 @@ return(
 
   onChange={handleChange}
   ></input>
+  </div>
+  <div>
   <label>Address</label>
   <input 
   type="text"
@@ -67,8 +70,10 @@ return(
   value={formData.address}
   onChange={handleChange}
   ></input>
+  </div>
 
-  <label>favDish</label>
+  <div>
+  <label>Favirote Food </label>
   <input 
   type="text"
   name="favDish"
@@ -76,6 +81,8 @@ return(
   value={formData.favDish}
   onChange={handleChange}
   ></input>
+  </div>
+  <div>
   <label>Price</label>
   <input 
   type="number"
@@ -85,6 +92,8 @@ return(
   value={formData.price}
   onChange={handleChange}
   ></input>
+  </div>
+  <div>
   <label>Image</label>
   <input 
   type="text"
@@ -93,6 +102,8 @@ return(
   value={formData.image}
   onChange={handleChange}
   ></input>
+  </div>
+  <div>
    <label>Submitted By:</label>
   <input 
   type="text"
@@ -101,6 +112,8 @@ return(
   value={formData.user}
   onChange={handleChange}
   ></input>
+  </div>
+  <div>
   <label>Comments</label>
   <input 
   type="text"
@@ -109,8 +122,16 @@ return(
   value={formData.comment}
   onChange={handleChange}
   ></input>
-  <input type="submit" />
+  </div>
+  <div>
+  
+  <button type="submit" >
+    Submit Listing
+    </button>
+  
+  </div>
 </form>
+
 </StyledFormList>
 </>
 )
@@ -122,15 +143,39 @@ export default AddNewForm;
 const StyledFormList = styled.div`
 color: #326B9D;
 input{
-  border-radius: 10px;
-  margin:10px;
+  display: inline-block;
+  width: 350px;
+  align: center;
+  padding-bottom: 10px;
+  border-radius: 20px;
   color: #326B9D;
   font-family: Copperplate;
   border: 2px solid #326B9D;
+  margin-right: 35px;
 }
 margin-top: 10px;
 
 h1{
   margin-top:50px;
+}
+label{
+  display: inline-block;
+  width: 175px;
+  text-align: center;
+  border-radius: 20px;
+  color: #326B9D;
+  font-family: Copperplate;
+  margin-right: 35px;
+}
+button{
+  display: inline-block;
+  color: white;
+  width: 225px;
+  align: center;
+  margin-top: 35px;
+  border-radius: 20px;
+  font-family: Copperplate;
+  border: 2px solid #326B9D;
+  background-color: blue;
 }
 `
