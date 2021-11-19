@@ -1,22 +1,12 @@
 import styled from "styled-components"
-import {Link} from "react-router-dom"
+import UserNavBar from "./UserNavBar"
 
-function Recommendations({masterList, setList}){
-   
-let userNames = ["Everyone"];
-   
-   for(let i=0; i<masterList.length; i++)
-   {if (userNames.includes(masterList[i].user))
-      {console.log(`rejected repeat creation of ${masterList[i]} button`)}
-   else
-   {  userNames.push(masterList[i].user)
-   console.log(userNames)}  
-   }   
+function Recommendations({masterList}){ 
 
 return( 
 
 <StyledUserItem>
-{userNames.map(userName=><Link to={`/recommendations/${userName}`}><button key={userName}>{`${userName}'s Faves`}</button></Link>)}
+   <UserNavBar masterList={masterList}/>
 </StyledUserItem>
 
  )
