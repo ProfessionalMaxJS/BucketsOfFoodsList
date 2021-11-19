@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+#Intro
+This project was born out of a mutual love. For food! Pema and Max designed the initial concept to help with a common problem: memory gaps! Specifically, the all too common conversation question "What was that restaurant we went to? What was that dish I had? The one that I really liked?" Fear no more - our website is here to help. The main focus/intent of this website is to offer users a place to dock their thoughts on a dish they really liked - as well as the name&address of where they had it, and any specific thoughts that came to them about it.
+Users who come to the site are faced with several options, laid out in the `<NavBar>` component:
+-They can peruse the master list of contributions and suggestions
+-They can search that same list by restaurant name or dish name
+-They can add to the list and see it update in real time
+-They can see the list broken down by contributions from a given user.
+    -On the Recommendations page, each user has their own button; clicking that link resets the list to show only that user's contributions, which is itself "stored" in a link with the extension of _that user's name_.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#Functionality
 
-## Available Scripts
+##Backend
+Pooling together our mental resources, as well as contributions from our friends, we built a JSON database of recommendations from scratch, full of our favorite odds'n'ends. Although time consuming and detail oriented, that was the easy part.
 
-In the project directory, you can run:
+##Overview
+The central list is pulled from the "backend," and maintained by mapping/displaying a `list` array variable, which itself is tracked with a `useState` declaration (and corresponding `setList` functions). There is also a backup `masterList`/`setMasterList` array variable for comparison purposes (such as the search and filter operators).
 
-### `npm start`
+##NavBar
+Routes are declared in the `MasterList` file, with links provided in the `NavBar` component. There is a separate `UserNavBar` component that tracks the number of different users who have contributed to the project, and creates a button for each of them (without creating any duplicates). More on this functionality in the _Recommendations_ section.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##Search
+The setList function is invoked by filtering the masterList variable (which, of note, is never mutated/the `setMasterList` function is never invoked). Having `list` tracked by state means the displayed list is always adjusted.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+##"Add New" Form
+The form itself is an HTML element, but is controlled by state. When the form is submitted, the new data is posted to the JSON database, and the `setList`/`setMasterList` functions are invoked to update their corresponding arrays. Note: The new objects are deliberately added to the front of the array so the user can see their new object display in front of them.
 
-### `npm test`
+##Recommendations
+Within the recommendations page, the `UserNavBar` renders a button for each user who has contributed to the project. Clicking on each button will open the `UserFilter` component. That component has several functions:
+###UserFilter.js
+The main effect is to display a filtered `list`;filtered by the clicked user's name. Functionally speaking, that re-rendering of `list` had to be wrapped in a `useEffect` call to prevent infinite re-rendering. In that call's Dependency Array is the `userObj`, which is redefined each time the button is clicked.
+Technically, each user's corresponding `UserFilter` component is a separate object. And (we're very proud of this): each object has its own link. The main return/export of the `UserFilter` component is a link to that user's `UserFilter` component, with the suffix `/recommendations/userName`. Functionally, that link is declared using `react-router-dom`'s _Dynamic_ property - in the `MasterList.js` file, along with the other routes, a route is declared using the `:` operator, followed by a variable, called `user`. 
+Within the `UserFilter` page, that `user` variable is accessed by importing `react-router-dom`'s `useParams` feature. This allowed us to pull that user's name to render the rest of the page with.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##Styling
+Once the components came together, the page was styled using react's `styled-components` functionaliity. All of it from scratch.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I think that's all we've got to say about it. Feel free to reach out with any questions. Thanks for reading!
+-Max, Okera and Pema
