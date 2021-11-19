@@ -24,6 +24,7 @@ function MasterList(){
 return(
     <>
    <h1 id="heading" style={{ margin:"0%", padding: "10px", font:"Monaco"}}> Buckets Of Food List </h1>
+   <p id="subHeading"> "Is it a Bucket List of Foods? Or a List of Foods that come in Bucket? You Decide!"</p>
     <NavBar setList={setList} masterList={masterList} />
 <Switch>
     <Route path="/search">

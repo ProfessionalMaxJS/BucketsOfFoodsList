@@ -15,3 +15,10 @@ body {
   color: #326B9D;
   text-shadow: 3px 3px #E3BB1C;
 }
+body #subHeading {
+  font-family: 'Road Rage', cursive;
+  font-size: 25px;
+  color: #326B9D;
+  margin-top: 0px;
+
+}

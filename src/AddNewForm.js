@@ -170,12 +170,12 @@ label{
 button{
   display: inline-block;
   color: white;
-  width: 225px;
+  width: 200px;
   align: center;
   margin-top: 35px;
   border-radius: 20px;
   font-family: Copperplate;
   border: 2px solid #326B9D;
-  background-color: blue;
+  background-color: #326B9D;
 }
 `

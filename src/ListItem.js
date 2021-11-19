@@ -12,6 +12,7 @@ function ListItem({id, user, rName, address, favDish, price, image, comment}){
             <h3>${price}</h3>
             <p>Submitted by: {user}</p>
             <p>Why {`${user}`} thinks you must try this food before you die: <br/>{comment}</p>
+            <p>fsdfsdfdfd</p>
         </div>
        </StyledListItem>
     )

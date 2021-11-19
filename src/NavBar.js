@@ -6,9 +6,7 @@ function NavBar({setList, masterList}){
 function replenish(){
     setList(masterList)
 }
-function hideMasterList(){
-    
-}
+
 
 return(
 <StyledNavBar >
@@ -32,7 +30,7 @@ button{
         margin: 10px;
         background-color: inherit;
         padding: 10px;
-        font-size: 25px;
+        font-size: 15px;
         cursor: pointer;
         display: inline-block;
         font-family: Copperplate;

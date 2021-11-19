@@ -13,7 +13,7 @@ for(let i=0; i<masterList.length; i++)
         console.log(userNames)}}  
            
         return(
-    userNames.map(userName=><StyledUserNav><button className="bttn"key={userName}> <Link to={`/recommendations/${userName}`}>{`${userName}'s Faves`}</Link></button></StyledUserNav>)
+    userNames.map(userName=><StyledUserNav><button className="bttn"key={userName}> <Link to={`/recommendations/${userName}`}>{`${userName}`}</Link></button></StyledUserNav>)
     )
 }
 
@@ -22,18 +22,16 @@ export default UserNavBar;
 const StyledUserNav = styled.div`
 
 .bttn{
-    padding-top:10px;
-    border:black;
-    width: 10%;
+    float: center;
+    margin-top:40px;
+    background-color: #326B9D;
     border-radius: 10px;
-    margin: 10px;
-    font-family: monaco;
-    display: inline-block;
-    background-color:#326B9D;
-    color:#E3BB1C;
-    float: right;
-    margin-right: 2%;
-    text-color: #E3AA1C;
-    margin-bottom: 30px;
-  
+    font-size: 10px;
+    margin: 25px;
+    
+ }
+ a{
+     color:#E3BB1C;
+     text-decoration: none;
+
  }`
