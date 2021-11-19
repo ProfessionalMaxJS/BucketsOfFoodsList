@@ -1,9 +1,5 @@
-
 import {useState} from "react";
-import MasterList from "./MasterList";
 import styled from "styled-components"
-
-
 
 function AddNewForm({list, setList, masterList, setMasterList}){
 
@@ -34,7 +30,7 @@ function AddNewForm({list, setList, masterList, setMasterList}){
       })
       .then(response => response.json())
       .then(data => { 
-      setList([...list, data])
+      setList([data, ...list])
       setMasterList([...masterList, data])
       setFormData({
         user:'',
@@ -137,6 +133,4 @@ margin-top: 10px;
 h1{
   margin-top:50px;
 }
-
-}
-}`
+`
