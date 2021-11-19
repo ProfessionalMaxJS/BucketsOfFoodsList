@@ -53,8 +53,6 @@ color: #E3BB1C;
 text-align: center;
 display: grid;
 grid-template-columns: 1fr;
-
-
 img{
     width: 250%;
 }
