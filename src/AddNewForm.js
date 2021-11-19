@@ -31,7 +31,7 @@ function AddNewForm({list, setList, masterList, setMasterList}){
       .then(response => response.json())
       .then(data => { 
       setList([data, ...list])
-      setMasterList([...masterList, data])
+      setMasterList([data, ...masterList])
       setFormData({
         user:'',
         rName:'',

@@ -1,20 +1,19 @@
 import {Link} from "react-router-dom"
 import styled from "styled-components"
 
-
-
 function NavBar({setList, masterList}){
 
-    function replenish(){
-        setList(masterList)
-    }
+function replenish(){
+    setList(masterList)
+}
 
-    return(
+return(
 <StyledNavBar >
     <Link to={"/"}><button className="navBttn" onClick={replenish}>Home Screen</button></Link>
     <Link to={"/search"}><button className="navBttn" onClick={replenish}>Search the List</button></Link>
     <Link to={"/contribute"}><button className="navBttn" onClick={replenish}>Add to the List </button></Link>
     <Link to={"/recommendations"}><button className="navBttn" onClick={replenish}>See our Faves!</button></Link>
+    
 </StyledNavBar  >
     )
 }

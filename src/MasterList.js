@@ -6,13 +6,13 @@ import AddNewForm from "./AddNewForm";
 import Recommendations from "./Recommendations";
 import UserFilter from "./UserFilter";
 import {Route, Switch} from "react-router-dom";
-import styled from "styled-components"
+// import styled from "styled-components"
 import { Scrollbars } from 'rc-scrollbars';
 
 function MasterList(){
     const [list,setList] = useState([]);
     const [masterList, setMasterList] = useState([]);
-      
+     
     useEffect(() => {
         fetch("http://localhost:3000/users")
         .then(res => res.json())
@@ -35,11 +35,11 @@ return(
     </Route>
     
     <Route path="/recommendations/:user">
-        <UserFilter list={list} setList={setList}/>
+        <UserFilter masterList={masterList} setList={setList}/>
     </Route>
 
     <Route path="/recommendations">
-        <Recommendations masterList={masterList} setList={setList}/>
+        <Recommendations masterList={masterList}/>
     </Route>
 
 </Switch>
@@ -52,15 +52,3 @@ return(
 }
 
 export default MasterList;
-
-const StyledListItem = styled.div`
-color: #E3BB1C;
-text-align: center;
-display: grid;
-grid-template-columns: 1fr;
-img{
-    width: 250%;
-}
-}`
-
-

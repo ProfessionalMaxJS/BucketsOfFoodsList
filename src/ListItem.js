@@ -9,7 +9,7 @@ function ListItem({id, user, rName, address, favDish, price, image, comment}){
             <h4>{address}</h4>
             <img src={image} alt="featured restaurant or dish" style={{width:200}} />
             <h2>Must Try: {favDish}</h2>
-            <h3>{price}</h3>
+            <h3>${price}</h3>
             <p>Submitted by: {user}</p>
             <p>Why {`${user}`} thinks you must try this food before you die: <br/>{comment}</p>
         </div>
