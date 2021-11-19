@@ -4,6 +4,7 @@ import ListItem from "./ListItem"
 import NavBar from "./NavBar"
 import AddNewForm from "./AddNewForm";
 import Recommendations from "./Recommendations";
+import UserFilter from "./UserFilter";
 import {Route, Switch} from "react-router-dom";
 import styled from "styled-components"
 import { Scrollbars } from 'rc-scrollbars';
@@ -33,10 +34,14 @@ return(
         <AddNewForm masterList={masterList} setMasterList={setMasterList} list={list} setList={setList}/>
     </Route>
     
+    <Route path="/recommendations/:user">
+        <UserFilter list={list} setList={setList}/>
+    </Route>
 
     <Route path="/recommendations">
-    <Recommendations masterList={masterList} setList={setList}/>
+        <Recommendations masterList={masterList} setList={setList}/>
     </Route>
+
 </Switch>
 
 <Scrollbars style={{ width: 800, height: 500,marginLeft:"20%", marginTop:"30px" }}>
