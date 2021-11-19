@@ -1,9 +1,12 @@
 import styled from "styled-components"
 
 import {useState} from "react";
+import {Link, useParams} from "react-router-dom"
 
-function UserFilter({masterList, setList}){
+function Recommendations({masterList, setList}){
    
+   console.log(useParams())
+
    let userNames = ["Everyone"];
    
    for(let i=0; i<masterList.length; i++)
@@ -24,12 +27,14 @@ function handleClick(e){
 
 return( 
 userNames.map(userName=> 
-   <StyledUserItem>
-      <button className="bttn" key={userName} name={userName} onClick={handleClick}>{userName}</button>
-   </StyledUserItem>
+
+<StyledUserItem>
+      <Link path="/:user"> <button key={userName} name={userName} onClick={handleClick}>{userName}</button> </Link>
+</StyledUserItem>
+
  ))
 }
-export default UserFilter;
+export default Recommendations;
 
 const StyledUserItem = styled.div`
 .bttn{
